@@ -16,3 +16,6 @@ shape = SubResource( 1 )
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 16, 16 )
+
+[node name="BulletStart" type="Position2D" parent="."]
+position = Vector2( 0, -13 )

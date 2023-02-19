@@ -1,9 +1,22 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://GameObjects/Player/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://LevelMain.gd" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 214.5, 319 )
 
 [node name="LevelMain" type="Node2D"]
+script = ExtResource( 2 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 219, 550 )
 scale = Vector2( 4, 4 )
+
+[node name="GameArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameArea"]
+position = Vector2( 198.5, 300 )
+shape = SubResource( 1 )
+
+[connection signal="body_exited" from="GameArea" to="." method="_on_GameArea_body_exited"]
