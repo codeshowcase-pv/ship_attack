@@ -8,6 +8,7 @@ var hp = 3
 
 func takeDamage(value):
 	hp -= value
+	$AnimationPlayer.play("take_damage")
 	if hp <= 0:
 		queue_free()
 
